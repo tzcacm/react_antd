@@ -1,8 +1,11 @@
-import { initialState } from './initialState';
-import { CHANGE_LOGIN } from './actionTypes';
+const initialState = {
+    userName: 'admin',
+    passWord: 'admin',
+    tokenId: '',
+}
 
 export default (state = initialState, action) => {
-    if (action.type === CHANGE_LOGIN) {
+    if (action.type === 'loginInfo') {
         let newState = JSON.parse(JSON.stringify(state));
         newState.userName = action.userName;
         newState.passWord = action.passWord;
@@ -11,3 +14,18 @@ export default (state = initialState, action) => {
     }
     return state;
 }
+
+export const login = ((userName, passWord, tokenId) =>
+    (dispatch) => {
+        return new Promise(reslove => {
+            const action = {
+                type: 'loginInfo',
+                userName: userName,
+                passWord: passWord,
+                tokenId: tokenId,
+            };
+            dispatch(action);
+            reslove('success');
+        })
+    }
+)

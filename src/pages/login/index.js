@@ -1,14 +1,12 @@
-import React, { Fragment, useReducer } from 'react';
-import { Form, Icon, Button, Input, Row, Col } from 'antd';
+import React, { Fragment } from 'react';
 import './index.less';
-import { LoginReducer, initialState, changeLogin } from './store';
-
+import { Form, Icon, Button, Input, Row, Col } from 'antd';
+import { login } from './store/reducer';
+import { connect } from 'react-redux';
 
 function LoginPage(props) {
 
     const { getFieldDecorator } = props.form;
-
-    const [state, dispatch] = useReducer(LoginReducer, initialState);
 
     //提交
     const handleSubmit = (e) => {
@@ -16,9 +14,10 @@ function LoginPage(props) {
         props.form.validateFields((err, values) => {
             if (!err) {
                 const { userName, passWord } = values;
-                dispatch(changeLogin(userName, passWord, 'hello world'));
-                localStorage.setItem('tokenId', 'hello word');
-                props.history.push('./');
+                props.handleLogin(userName, passWord, 'hello world').then(res => {
+                    localStorage.setItem('tokenId', 'hello word');
+                    props.history.push('./');
+                });
             }
         });
     }
@@ -41,7 +40,7 @@ function LoginPage(props) {
                     <Form onSubmit={handleSubmit} className="login-form">
                         <Form.Item>
                             {getFieldDecorator('userName', {
-                                initialValue: `${state.userName}`,
+                                initialValue: `${props.userName}`,
                                 validateFirst: true,
                                 rules: [{ validator: checkUserName }],
                             })(
@@ -53,7 +52,7 @@ function LoginPage(props) {
                         </Form.Item>
                         <Form.Item>
                             {getFieldDecorator('passWord', {
-                                initialValue: `${state.passWord}`,
+                                initialValue: `${props.passWord}`,
                                 validateFirst: true,
                                 rules: [{ validator: checkPassword }],
                             })(
@@ -76,4 +75,15 @@ function LoginPage(props) {
     )
 }
 
-export default Form.create({})(LoginPage)
+//获取redux登录信息
+const mapStateToProps = (state) => ({
+    userName: state.login.userName,
+    passWord: state.login.passWord
+})
+
+//设置redux设置登录
+const mapToDispatch = ({
+    handleLogin: (userName, passWord, tokenId) => login(userName, passWord, tokenId)
+})
+
+export default connect(mapStateToProps, mapToDispatch)(Form.create({})(LoginPage))

@@ -7,6 +7,13 @@ const { SubMenu } = Menu;
 
 class LayoutComponent extends Component {
 
+    constructor(props){
+        super(props);
+        // const { history } = props;
+        console.log(props);
+    }
+
+
     state = {
         collapsed: false,
     };

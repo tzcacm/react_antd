@@ -11,7 +11,7 @@ const IndexPage = (props) => {
     return (
         <div className="main_box">
             <div><Layout></Layout></div>
-            <div class="main_container">
+            <div className="main_container">
                 <Header></Header>
                 <div>{props.children}</div>
             </div>
