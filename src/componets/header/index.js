@@ -1,32 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Icon, Button } from 'antd';
-// import { actionCreators } from './store';
+import { connect } from 'react-redux';
+import './index.less';
 
-class Header extends Component {
+const HeaderComponent = (props) => {
 
-    state = {
-        collapsed: false,
-    };
-
-    toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    };
-
-    render() {
-        return (
-            <div className="">
-                <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-                    <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
-                </Button>
-                <div>我是店长</div>
-            </div>
-        )
+    const toggleCollapsed = () => {
+        props.toggleCollapsed(props.collapsed);
     }
+
+    return (
+        <div className="header_box">
+            <Button type="primary" onClick={toggleCollapsed} className="header_button">
+                <Icon type={props.collapsed ? 'menu-unfold' : 'menu-fold'} />
+            </Button>
+            <div className="header_title">我是店长</div>
+        </div>
+    )
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+    collapsed: state.header.collapsed
+});
+
+const mapToDispatch = (dispatch) => ({
+    toggleCollapsed: (collapsed) => {
+        console.log(collapsed);
+        const action = {
+            type: 'change_collapsed',
+            collapsed: !collapsed
+        };
+        dispatch(action);
+    }
+})
+
+
+
+
+export default connect(mapStateToProps, mapToDispatch)(HeaderComponent);
 
 
 

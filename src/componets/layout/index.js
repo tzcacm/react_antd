@@ -1,31 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './index.less';
 import { menus } from '../../config/menu';
 import { Link } from 'react-router-dom';
-import { Icon, Menu } from 'antd';
+import { Layout, Icon, Menu } from 'antd';
+import { connect } from 'react-redux';
 const { SubMenu } = Menu;
 
-class LayoutComponent extends Component {
+const LayoutComponent = (props) => {
 
-    constructor(props){
-        super(props);
-        // const { history } = props;
-        console.log(props);
-    }
+    const menupath = window.location.hash.substr(1);     //刷新页面时，获取location整体的路径==>'/home/one'
+    const menuopen = `/${window.location.hash.substr(1).split('/')[1]}`;//刷新页面时，获取location单个的路径==>'/home'
 
-
-    state = {
-        collapsed: false,
-    };
-
-    render() {
-        return (
-            <div className="layout_box">
+    return (
+        <Layout>
+            <div className="layout_box" style={{ width: props.collapsed ? '100%' : '250px' }}>
                 <div className="layout_logo">logo</div>
                 <Menu
-                    defaultSelectedKeys={['/']}
+                    defaultSelectedKeys={[menupath]}
+                    defaultOpenKeys={[menuopen]}
                     mode="inline"
-                    inlineCollapsed={this.state.collapsed}
+                    inlineCollapsed={props.collapsed}
                 >
                     {
                         menus.map(item => {
@@ -67,8 +61,12 @@ class LayoutComponent extends Component {
                     }
                 </Menu>
             </div>
-        );
-    }
+        </Layout>
+    );
 }
 
-export default LayoutComponent;
+const mapStateToProps = (state) => ({
+    collapsed: state.header.collapsed
+})
+
+export default connect(mapStateToProps, null)(LayoutComponent);

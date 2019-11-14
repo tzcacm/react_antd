@@ -1,22 +1,37 @@
 import HomePage from '../pages/home';
-import DetailsPage from '../pages/details';
-import HelloPage from '../pages/hello';
+import ProductPage from '../pages/product';
+import ChartLinePage from '../pages/chartLine';
+import ChartCirclePage from '../pages/chartCircle';
+import RichPage from '../pages/rich';
+import PasswordPage from '../pages/password';
+import ErrorPage from '../pages/404';
 
 const routerConfig = [{
         path: '/',
         component: HomePage
     },
     {
-        path: '/list',
-        component: DetailsPage
+        path: '/product',
+        component: ProductPage
     },
     {
-        path: '/list/one',
-        component: HelloPage
+        path: '/chart/line',
+        component: ChartLinePage
     },
     {
-        path: '/list/two',
-        component: HelloPage
+        path: '/chart/circle',
+        component: ChartCirclePage
+    },
+    {
+        path: '/rich',
+        component: RichPage
+    },
+    {
+        path: '/setting/password',
+        component: PasswordPage
+    },
+    {
+        component: ErrorPage
     }
 ]
 

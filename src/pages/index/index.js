@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Layout from '../../componets/layout';
 import Header from '../../componets/header';
 import './index.less';
 
-const IndexPage = (props) => {
+class IndexPage extends Component {
 
-    if (!localStorage.getItem('tokenId')) return <Redirect to="/login"></Redirect>
+    render() {
+        // 监听路由
+        if (!localStorage.getItem('tokenId')) {
+            return <Redirect to="/login"></Redirect>
+        } else {
+            return (
+                <div className="main_box">
+                    <div><Layout></Layout></div>
+                    <div className="main_container">
+                        <Header></Header>
+                        <div>{this.props.children}</div>
+                    </div>
+                </div>
+            )
+        }
+    }
 
-    return (
-        <div className="main_box">
-            <div><Layout></Layout></div>
-            <div className="main_container">
-                <Header></Header>
-                <div>{props.children}</div>
-            </div>
-        </div>
-    )
+
 }
 
 
-export default IndexPage;
+export default IndexPage

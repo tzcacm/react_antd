@@ -16,7 +16,7 @@ function LoginPage(props) {
                 const { userName, passWord } = values;
                 props.handleLogin(userName, passWord, 'hello world').then(res => {
                     localStorage.setItem('tokenId', 'hello word');
-                    props.history.push('./');
+                    props.history.replace('./');
                 });
             }
         });

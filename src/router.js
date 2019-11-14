@@ -23,7 +23,11 @@ export default class Router extends Component {
                                     <Switch>
                                         {
                                             config.map((item, key) => {
-                                                return <Route path={item['path']} exact component={item['component']} key={key}></Route>
+                                                if (item['path']) {
+                                                    return <Route path={item['path']} exact component={item['component']} key={key}></Route>
+                                                } else {
+                                                    return <Route component={item['component']} key={key}></Route>
+                                                }
                                             })
                                         }
                                     </Switch>

@@ -4,33 +4,35 @@ export const menus = [{
         icon: 'user'
     },
     {
-        path: '/list',
-        title: '商品',
+        path: '/product',
         icon: 'user',
-        isActive: true,
+        title: '商品管理'
+    }, {
+        path: '/chart',
+        title: '图表管理',
+        icon: 'user',
         children: [{
-                path: '/list/one',
-                title: '商品1'
+                path: '/chart/line',
+                title: '折线图'
             },
             {
-                path: '/list/two',
-                title: '商品2'
+                path: '/chart/circle',
+                title: '圆柱图'
             },
         ],
     },
     {
-        path: '/gg',
-        title: 'hello',
-        icon: 'user',
-        isActive: true,
-        children: [{
-                path: '/gg/one',
-                title: 'gg1'
-            },
-            {
-                path: '/gg/two',
-                title: 'gg2'
-            },
-        ],
+        path: '/rich',
+        title: '富文本',
+        icon: 'user'
     },
+    {
+        path: '/setting',
+        title: '设置',
+        icon: 'user',
+        children: [{
+            path: '/setting/password',
+            title: '修改密码'
+        }],
+    }
 ]

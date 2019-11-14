@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import { HeaderReducer } from '../componets/header/store';
-import { HomeReducer } from '../pages/home/store';
+import HomeReducer from '../pages/home/store/reducer';
 import LoginReducer from '../pages/login/store/reducer';
+
+
+import HeaderReducer from '../componets/header/store/reducer';
 
 const reducer = combineReducers({
     header: HeaderReducer,

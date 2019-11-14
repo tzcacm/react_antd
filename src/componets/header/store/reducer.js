@@ -1,28 +1,13 @@
-import { HEADER_INFO, GET_LIST } from './actionTypes';
-
-const loginInfo = {
-    tokenid: '1',
-    name: 'tzc',
-    list: [1, 2],
-    pageIndex: 1,
-    pageSize: 10
+const initialState = {
+    collapsed: false
 };
 
-export default (state = loginInfo, action) => {
-    if (action.type === HEADER_INFO) {
-        const newLoginInfo = JSON.parse(JSON.stringify(state));
-        newLoginInfo.tokenid = action.tokenid;
-        newLoginInfo.name = action.name;
-        return newLoginInfo;
+export default (state = initialState, action) => {
+    console.log(action);
+    if (action.type === 'change_collapsed') {
+        let newState = JSON.parse(JSON.stringify(state));
+        newState.collapsed = action.collapsed;
+        return newState;
     }
-
-    if (action.type === GET_LIST) {
-        const newList = JSON.parse(JSON.stringify(state));
-        console.log(action);
-        newList.list = action.list;
-        newList.pageIndex = action.index;
-        return newList;
-    }
-
     return state;
 }
