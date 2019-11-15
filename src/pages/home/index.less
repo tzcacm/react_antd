@@ -1,0 +1,44 @@
+.home_menu {
+    display: flex;
+
+    .menu_list {
+        width: 24.5%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: #fff;
+        margin-right: 1%;
+        border-radius: 8px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .menu_icon {
+            font-size: 50px;
+        }
+
+        .menu_box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .menu_title {
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.45);
+                font-weight: bold;
+            }
+
+            .menu_number {
+                font-size: 20px;
+                color: #666;
+                margin-top: 12px;
+            }
+        }
+    }
+}
+
+.home_card {
+    margin-top: 30px;
+}
