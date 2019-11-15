@@ -25,7 +25,7 @@ const HeaderComponent = (props) => {
                 <Icon type={props.collapsed ? 'menu-unfold' : 'menu-fold'} />
             </Button>
 
-            <Popover content={content} arrowPointAtCenter trigger="hover">
+            <Popover content={content} arrowPointAtCenter placement="top" trigger="hover">
                 <div className="header_setting">
                     <Avatar size={36} icon="github" />
                     <div className="header_title">我是店长</div>

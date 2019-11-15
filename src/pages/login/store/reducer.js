@@ -5,7 +5,6 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-    console.log(action);
     if (action.type === 'loginInfo') {
         let newState = JSON.parse(JSON.stringify(state));
         newState.userName = action.userName;
