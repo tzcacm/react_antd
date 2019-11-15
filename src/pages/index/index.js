@@ -16,7 +16,9 @@ class IndexPage extends Component {
                     <div><Layout></Layout></div>
                     <div className="main_container">
                         <Header></Header>
-                        <div>{this.props.children}</div>
+                        <div className="main_content">
+                            {this.props.children}
+                        </div>
                     </div>
                 </div>
             )

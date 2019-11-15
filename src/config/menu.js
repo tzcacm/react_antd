@@ -1,16 +1,16 @@
 export const menus = [{
         path: '/',
         title: '首页',
-        icon: 'user'
+        icon: 'home'
     },
     {
         path: '/product',
-        icon: 'user',
+        icon: 'database',
         title: '商品管理'
     }, {
         path: '/chart',
         title: '图表管理',
-        icon: 'user',
+        icon: 'area-chart',
         children: [{
                 path: '/chart/line',
                 title: '折线图'
@@ -24,12 +24,12 @@ export const menus = [{
     {
         path: '/rich',
         title: '富文本',
-        icon: 'user'
+        icon: 'scan'
     },
     {
         path: '/setting',
         title: '设置',
-        icon: 'user',
+        icon: 'setting',
         children: [{
             path: '/setting/password',
             title: '修改密码'

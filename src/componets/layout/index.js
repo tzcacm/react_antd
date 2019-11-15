@@ -29,10 +29,8 @@ const LayoutComponent = (props) => {
                                         key={item['path']}
                                         title={
                                             <span>
-                                                <Link to={item['path']}>
-                                                    <Icon type={item['icon']} />
-                                                    <span>{item['title']}</span>
-                                                </Link>
+                                                <Icon type={item['icon']} />
+                                                <span>{item['title']}</span>
                                             </span>
                                         }
                                     >

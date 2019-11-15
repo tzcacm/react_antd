@@ -6,13 +6,35 @@
     align-items: center;
     box-sizing: border-box;
     border-bottom: 1px solid #ccc;
-    box-shadow: 0 1px 0 1px #ededed ;
+    box-shadow: 0 1px 0 1px #ededed;
 
     .header_button {
         margin-left: 20px;
     }
 
-    .header_title {
+    .header_setting {
+        display: flex;
+        align-items: center;
         margin-right: 20px;
+        padding: 10px;
+        cursor: pointer;
+
+        .header_title {
+            margin: 0 5px;
+        }
+    }
+
+}
+
+.popover_box {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+
+    .popover_title {
+        margin-left: 5px;
     }
 }
