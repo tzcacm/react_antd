@@ -9,7 +9,7 @@ const HeaderComponent = (props) => {
     const content = (
         <Fragment>
             <div className="popover_box" onClick={props.exitLogin}>
-                <Icon type="rollback" className="popover_Icon"></Icon>
+                <Icon type="export" className="popover_Icon"></Icon>
                 <div className="popover_title">退出登录</div>
             </div>
         </Fragment>

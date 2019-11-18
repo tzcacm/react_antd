@@ -1,0 +1,80 @@
+.product_box {
+    // position: relative;
+
+    .product_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .product_tool {
+            display: flex;
+
+            .product_select {
+                width: 120px;
+            }
+
+            .product_input {
+                width: 150px;
+                margin: 0 10px;
+            }
+
+        }
+
+        .product_add {
+            display: flex;
+            height: 40px;
+            align-items: center;
+
+            .product_addBtm {
+                font-size: 16px;
+                color: #fff;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .product_table {
+        background: #fff;
+        margin-top: 20px;
+    }
+}
+
+//修改编辑器
+.product_amendbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+
+    .product_form {
+        background: #fff;
+        padding: 50px;
+        border-radius: 8px;
+        width: 40%;
+        margin: 10% auto 0;
+
+        .product_amendTitle {
+            font-size: 22px;
+            // text-align:center;
+            margin-bottom: 50px;
+        }
+
+        .product_amendInput {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+
+            .product_type {
+                width: 80px;
+            }
+        }
+
+        .product_sure {
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+    }
+}

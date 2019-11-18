@@ -6,10 +6,10 @@ const { Meta } = Card;
 const HomePage = () => {
 
     const homeMenuList = [
-        { icon: 'user', title: '用户总数', count: Math.round(Math.random() * 10000) },
-        { icon: 'user', title: '商品总数', count: Math.round(Math.random() * 1000) },
-        { icon: 'user', title: '订单总数', count: Math.round(Math.random() * 100) },
-        { icon: 'user', title: '浏览总数', count: Math.round(Math.random() * 1000) }
+        { icon: 'user-add', title: '用户总数', count: Math.round(Math.random() * 10000) },
+        { icon: 'shopping', title: '商品总数', count: Math.round(Math.random() * 1000) },
+        { icon: 'shop', title: '订单总数', count: Math.round(Math.random() * 100) },
+        { icon: 'usergroup-delete', title: '浏览总数', count: Math.round(Math.random() * 1000) }
     ];
 
     return (
