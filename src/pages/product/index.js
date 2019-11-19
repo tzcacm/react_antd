@@ -5,7 +5,7 @@ import './index.less';
 const { Option } = Select;
 
 class ProductPage extends Component {
-    
+
     constructor(props) {
         super(props)
         this.state = {
@@ -114,6 +114,34 @@ class ProductPage extends Component {
                     price: parseFloat(Math.random() * 100).toFixed(2),
                     state: 1,
                     tool: ['修改', '删除'],
+                }, {
+                    key: '7',
+                    id: Math.round(Math.random() * 10000),
+                    name: '番薯叶',
+                    price: parseFloat(Math.random() * 100).toFixed(2),
+                    state: 1,
+                    tool: ['修改', '删除'],
+                }, {
+                    key: '8',
+                    id: Math.round(Math.random() * 10000),
+                    name: '番薯叶',
+                    price: parseFloat(Math.random() * 100).toFixed(2),
+                    state: 1,
+                    tool: ['修改', '删除'],
+                }, {
+                    key: '9',
+                    id: Math.round(Math.random() * 10000),
+                    name: '番薯叶',
+                    price: parseFloat(Math.random() * 100).toFixed(2),
+                    state: 1,
+                    tool: ['修改', '删除'],
+                }, {
+                    key: '10',
+                    id: Math.round(Math.random() * 10000),
+                    name: '番薯叶',
+                    price: parseFloat(Math.random() * 100).toFixed(2),
+                    state: 1,
+                    tool: ['修改', '删除'],
                 }
             ],
             dataIndex: null,//记录弹出编辑器的列表下标
@@ -161,9 +189,10 @@ class ProductPage extends Component {
             //增加列表
             if (infoData['name'] !== '' && infoData['price'] !== '' && infoData['state']) {
                 let [editListData, editInfoData] = [JSON.parse(JSON.stringify(listData)), JSON.parse(JSON.stringify(infoData))];
+                let maxListData  = JSON.parse(JSON.stringify(editListData));
                 //获取列表的key的最大值
-                editListData.sort((a, b) => Number(b['key']) - Number(a['key']));
-                const isMaxKey = Number(editListData[0]['key']) + 1;
+                maxListData.sort((a, b) => Number(b['key']) - Number(a['key']));
+                const isMaxKey = Number(maxListData[0]['key']) + 1;
                 Object.assign(editInfoData, { key: String(isMaxKey), id: 5248, tool: ['修改', '删除'] });
                 editListData.push(editInfoData);
                 this.setState(() => ({ listData: editListData }));
@@ -209,7 +238,7 @@ class ProductPage extends Component {
                     </div>
 
                     <div className="product_table">
-                        <Table bordered dataSource={listData} columns={columns} pagination={false} />
+                        <Table bordered dataSource={listData} columns={columns} pagination={true} />
                     </div>
                 </div>
 
