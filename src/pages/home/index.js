@@ -34,9 +34,14 @@ const HomePage = () => {
             <div className="home_card">
                 <Card
                     hoverable
-                    cover={<img alt="example" src="http://bimgs.plmeizi.com/images/bing/2018/WhiteTiger_ZH-CN12326957209_1920x1080.jpg" />}
-                >
-                    <Meta avatar={<Avatar src='https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D220/sign=f23b0796b74543a9f11bfdce2e178a7b/8b13632762d0f703d0ad4cbe08fa513d2697c5b1.jpg' />} title="孟加拉白虎" description="尽管在野外有孟加拉白虎出没的记载，但它们非常罕见。这可能是因为孟加拉白虎的毛皮里缺少色素，这种天生的缺陷降低了它们在自然界的存活率。如今，人们看到的孟加拉白虎都是动物园的园宝。孟加拉白虎在许多文化中具有很强的神话色彩，包括在韩国，它是力量和信任的象征。因此韩国奥林匹克委员会选择了孟加拉白虎作为2018年冬季奥运会的吉祥物之一。" />
+                    cover={<img alt="example" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574165869443&di=d75634a6940392e6dca3ff2f0b074627&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F279759ee3d6d55fb76bf28446b224f4a20a4dd53.jpg" />}>
+                    <Meta
+                        avatar={<Avatar src='https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D220/sign=f23b0796b74543a9f11bfdce2e178a7b/8b13632762d0f703d0ad4cbe08fa513d2697c5b1.jpg' />}
+                        title="周杰伦"
+                        description="周杰伦（Jay Chou），1979年1月18日出生于台湾省新北市，毕业于淡江中学，中国台湾流行乐男歌手、音乐人、演员、导演、编剧等。
+                        2000年发行首张个人专辑《Jay》。2001年发行的专辑《范特西》奠定其融合中西方音乐的风格。2002年举行“The One”世界巡回演唱会。2003年成为美国《时代周刊》封面人物。2004年获得世界音乐大奖中国区最畅销艺人奖。2005年凭借动作片《头文字D》获得台湾电影金马奖、香港电影金像奖最佳新人奖。2006年起连续三年获得世界音乐大奖中国区最畅销艺人奖。2007年自编自导的文艺片《不能说的秘密》获得台湾电影金马奖年度台湾杰出电影奖。
+                        2008年凭借歌曲《青花瓷》获得第19届金曲奖最佳作曲人奖。2009年入选美国CNN评出的“25位亚洲最具影响力的人物”；同年凭借专辑《魔杰座》获得第20届金曲奖最佳国语男歌手奖。2010年入选美国《Fast Company》评出的“全球百大创意人物” 。2011年凭借专辑《跨时代》再度获得金曲奖最佳国语男歌手奖，并且第4次获得金曲奖最佳国语专辑奖；同年主演好莱坞电影《青蜂侠》。2012年登福布斯中国名人榜榜首。2014年发行华语乐坛首张数字音乐专辑《哎呦，不错哦》。2018年举行“地表最强2”世界巡回演唱会。" >
+                    </Meta>
                 </Card>
             </div>
         </div>

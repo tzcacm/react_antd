@@ -55,8 +55,9 @@ class EditInfo extends Component {
 
 // 类型检查
 EditInfo.propTypes = {
-    editInfoData: PropTypes.object,
-    isShowChange: PropTypes.bool
+    isShowChange: PropTypes.bool,
+    editType: PropTypes.string,
+    infoData: PropTypes.object,
 }
 
 export default EditInfo;
