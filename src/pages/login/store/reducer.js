@@ -15,6 +15,11 @@ export default (state = initialState, action) => {
         let newState = JSON.parse(JSON.stringify(state));
         newState.tokenId = action.tokenId
         return newState;
+    } else if (action.type === 'changePassword') {
+        let newState = JSON.parse(JSON.stringify(state));
+        newState.passWord = action.passWord;
+        newState.tokenId = '';
+        return newState;
     }
     return state;
 }
@@ -43,5 +48,18 @@ export const exitLogin = () => {
         dispatch(action);
         localStorage.removeItem('tokenId');
         window.location = '#/login';
+    }
+}
+
+export const changePassword = (newPassWord) => {
+    return (dispatch) => {
+        return new Promise(resolve => {
+            const action = {
+                type: 'changePassword',
+                passWord: newPassWord
+            };
+            dispatch(action);
+            resolve('success')
+        })
     }
 }

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './index.less';
 
-
-const ErrorPage = function (props) {
+const ErrorPage = function () {
     return (
-        <div>我是404</div>
+        <div className="error_box">页面不存在</div>
     )
 }
 

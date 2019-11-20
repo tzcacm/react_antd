@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd';
+import { connect } from 'react-redux';
+import { changePassword } from '../login/store/reducer';
 import './index.less';
 
 const PasswordPage = (props) => {
@@ -11,8 +13,12 @@ const PasswordPage = (props) => {
         e.preventDefault();
         props.form.validateFields((err, values) => {
             if (!err) {
-                console.log(values)
-                const { oldPassword, newPassWordOne, newPassWordTwo } = values;
+                const { newPassWordTwo } = values;
+                props.handlePassword(newPassWordTwo).then(() => {
+                    message.success('修改密码成功');
+                    localStorage.removeItem('tokenId');
+                    window.location.replace('#/login')
+                })
             }
         });
     }
@@ -25,12 +31,26 @@ const PasswordPage = (props) => {
 
     //自定义检验密码
     const checkNewPasswordOne = (rule, value, callback) => {
-        !value ? callback('请输入新密码') : callback();
+        let oldPassword = props.form.getFieldValue('oldPassword');
+        if (!value) {
+            callback('请输入新密码')
+        } else if (value === oldPassword) {
+            callback('新旧密码不能一致')
+        } else {
+            callback();
+        }
     }
 
     //自定义检验密码
     const checkNewPasswordTwo = (rule, value, callback) => {
-        !value ? callback('请输入确认密码') : callback();
+        let newPassWordOne = props.form.getFieldValue('newPassWordOne');
+        if (!value) {
+            callback('请输入确认密码')
+        } else if (value !== newPassWordOne) {
+            callback('新密码不一致')
+        } else {
+            callback();
+        }
     }
 
     return (
@@ -85,4 +105,8 @@ const PasswordPage = (props) => {
     )
 }
 
-export default Form.create({})(PasswordPage);
+const mapToDispatch = ({
+    handlePassword: (newPassword) => changePassword(newPassword)
+})
+
+export default connect(null, mapToDispatch)(Form.create({})(PasswordPage));
