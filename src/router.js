@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import routerConfig from './config/routerConfig';
 import App from './App';
@@ -16,25 +16,30 @@ export default class Router extends Component {
             <Provider store={store} >
                 <HashRouter>
                     <App>
-                        <Switch>
-                            <Route path="/login" component={LoginPage}></Route>
-                            <Route path="/" render={() =>
-                                <IndexPage>
-                                    <Switch>
-                                        {
-                                            config.map((item, key) => {
-                                                if (item['path']) {
-                                                    return <Route path={item['path']} exact component={item['component']} key={key}></Route>
-                                                } else {
-                                                    return <Route component={item['component']} key={key}></Route>
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <Switch>
+                                <Route path="/login" component={LoginPage}></Route>
+                                <Route path="/" render={() =>
+                                    <IndexPage>
+                                        {/* 子路由懒加载 */}
+                                        <Suspense fallback={<div>正在加载...</div>}>
+                                            <Switch>
+                                                {
+                                                    config.map((item, key) => {
+                                                        if (item['path']) {
+                                                            return <Route path={item['path']} exact component={item['component']} key={key}></Route>
+                                                        } else {
+                                                            return <Route component={item['component']} key={key}></Route>
+                                                        }
+                                                    })
                                                 }
-                                            })
-                                        }
-                                    </Switch>
-                                </IndexPage>
-                            }></Route>
-                            <Route component={ErrorPage}></Route>
-                        </Switch>
+                                            </Switch>
+                                        </Suspense>
+                                    </IndexPage>
+                                }></Route>
+                                <Route component={ErrorPage}></Route>
+                            </Switch>
+                        </Suspense>
                     </App>
                 </HashRouter >
             </Provider>

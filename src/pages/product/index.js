@@ -151,6 +151,14 @@ class ProductPage extends Component {
         }
     }
 
+    //性能优化
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.isShowChange !== nextState.isShowChange) return true
+        if (this.state.listData !== nextState.listData) return true
+        if (this.state.infoData !== nextState.infoData) return true
+        return false;
+    }
+
     //弹出修改编辑器
     changeTable(type, index) {
         this.setState({
@@ -189,7 +197,7 @@ class ProductPage extends Component {
             //增加列表
             if (infoData['name'] !== '' && infoData['price'] !== '' && infoData['state']) {
                 let [editListData, editInfoData] = [JSON.parse(JSON.stringify(listData)), JSON.parse(JSON.stringify(infoData))];
-                let maxListData  = JSON.parse(JSON.stringify(editListData));
+                let maxListData = JSON.parse(JSON.stringify(editListData));
                 //获取列表的key的最大值
                 maxListData.sort((a, b) => Number(b['key']) - Number(a['key']));
                 const isMaxKey = Number(maxListData[0]['key']) + 1;
