@@ -6,7 +6,7 @@
 ![Image text](https://raw.githubusercontent.com/tzcacm/images/master/two.png?token=AGJDAFC7YZYVCWAYOOTPSWC52T3YG)
 
 # 运行和打包说明
-安装包依赖
+安装包依赖（需要webpack@4.41.0）
 
 第一、npm install 第二、yarn start（具备yarn的npm包）
 
